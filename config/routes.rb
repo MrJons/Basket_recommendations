@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'basket#index'
+  root 'baskets#index'
 
   resources :basket
 end

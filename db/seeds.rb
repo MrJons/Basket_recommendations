@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+item1 = Basket.create(product: 'Bread', price: 1.29)
+item2 = Basket.create(product: 'Milk', price: 0.99)
