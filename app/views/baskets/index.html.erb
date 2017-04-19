@@ -2,7 +2,7 @@
 
   <div class="reccomendations col-lg-4">
 
-    <h3>Add these weekly purchases?</h3>
+    <h3>Add these weekly purchases?</h3><br>
 
     <% if @recommendations.any? %>
       <table class="table table-striped">
@@ -10,6 +10,7 @@
           <tr>
             <th>Product</th>
             <th>Price</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -24,7 +25,7 @@
       </table>
     <% else %>
       <h3>Uh oh!</h3>
-      <p>There are currently no reccomendations, please build up a history so we
+      <p>There are currently no recommendations, please build up a history so we
         know what you like.</p>
     <% end %>
 

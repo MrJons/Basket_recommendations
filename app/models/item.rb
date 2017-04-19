@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   def self.recommendations
     @recommends = {}
 
-      Item.all.each do |item|
+      self.all.each do |item|
         comparable_dates = item.purchase_dates.last(2)
         first_date = comparable_dates[0].created_at # Most recent date
         second_date = comparable_dates[1].created_at # Second most recent date

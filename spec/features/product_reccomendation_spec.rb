@@ -1,28 +1,34 @@
 require 'rails_helper'
 
-feature 'product reccomendation' do
+feature 'product recommendation' do
 
-  context 'There are no reccomendations' do
-    scenario "A 'no current reccomendations' message is shown" do
+  context 'There are no recommendations' do
+    scenario "A 'no current recommendations' message is shown" do
       visit '/'
       expect(page).to have_content("Uh oh!")
-      expect(page).to have_content("There are currently no reccomendations,
+      expect(page).to have_content("There are currently no recommendations,
                           please build up a history so we know what you like.")
     end
   end
 
-  # context 'Items are in the basket' do
-  #   before :each do
-  #     Rails.application.load_seed
-  #   end
-  #
-  #   scenario "Item name and price should be shown" do
-  #     visit '/'
-  #     expect(page).to have_content("Bread")
-  #     expect(page).to have_content("£1.29")
-  #     expect(page).to have_content("Milk")
-  #     expect(page).to have_content("£0.99")
-  #   end
-  # end
+  context 'There are recommendations ' do
+    before :each do
+      Rails.application.load_seed
+    end
+
+    scenario "Item name and price should be shown" do
+      visit '/'
+      expect(page).to have_content("Biscuits")
+      expect(page).to have_content("£0.80")
+      expect(page).to have_content("Coffee")
+      expect(page).to have_content("£2.90")
+    end
+
+    scenario "should not show items that dont match recommendation criteria" do
+      visit "/"
+      expect(page).not_to have_content("Crisps")
+      expect(page).not_to have_content("£1.50")
+    end
+  end
 
 end
