@@ -4,9 +4,29 @@
 
     <h3>Add these weekly purchases?</h3>
 
-    <h3>Uh oh!</h3>
-    <p>There are currently no reccomendations, please build up a history so we
-      know what you like.</p>
+    <% if @recommendations.any? %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @recommendations.each do |item, price| %>
+            <tr>
+              <td><%= item %></td>
+              <td>£<%= '%.2f' % price %></td>
+              <td><a class="btn btn-primary btn-xs pull-right" >Add to cart</a></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <h3>Uh oh!</h3>
+      <p>There are currently no reccomendations, please build up a history so we
+        know what you like.</p>
+    <% end %>
 
   </div>
 
@@ -37,6 +57,8 @@
 
         </tbody>
       </table>
+
+      <a class="btn btn-primary btn-xl pull-right" >Proceed</a>
 
     <% else %>
       <h2>There is currently nothing in your basket.</h2>
