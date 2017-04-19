@@ -10,7 +10,7 @@ class Item < ApplicationRecord
         second_date = comparable_dates[1].created_at # Second most recent date
 
         if ( date_check?(first_date, 0, 7) && date_check?(second_date, 8, 14) )
-          @recommends[item.name] = 1.00     # add price to item table
+          @recommends[item.name] = item.price
         end
       end
 
