@@ -8,3 +8,7 @@
 
 item1 = Basket.create(product: 'Bread', price: 1.29)
 item2 = Basket.create(product: 'Milk', price: 0.99)
+
+@history_item = Item.create(name: crackers)
+
+crackers_dates = PurchaseDate.create(item_id: @history_item.id)
